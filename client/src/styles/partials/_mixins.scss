@@ -1,12 +1,6 @@
 // fonts config
-@mixin monserrat($weight: 400, $style: normal) {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: $weight;
-    font-style: $style;
-}
-
-@mixin dosis($weight: 400, $style: normal) {
-    font-family: 'Dosis', sans-serif;
+@mixin roboto($weight: 400, $style: normal) {
+    font-family: 'Roboto', sans-serif;
     font-weight: $weight;
     font-style: $style;
 }
@@ -15,7 +9,7 @@
 @mixin input-base {
     border: none;
     outline: none;
-    padding: 12px 0;
+    padding: .5rem 1rem;
 }
 
 // Link style base

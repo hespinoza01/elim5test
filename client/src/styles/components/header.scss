@@ -1,0 +1,15 @@
+.Header {
+    @include flex-horizontal;
+    @include roboto($weight: 500);
+    justify-content: flex-start;
+    align-items: baseline;
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    span {
+        font-size: 1.25rem;
+        margin-left: .25rem;
+    }
+}

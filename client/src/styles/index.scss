@@ -4,5 +4,10 @@
 @import 'partials/base';
 
 // import components
+@import 'components/button.scss';
+@import 'components/elim5-minion.scss';
+@import 'components/footer.scss';
+@import 'components/header.scss';
 
 // import views
+@import 'views/home.scss';

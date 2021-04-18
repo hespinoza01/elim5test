@@ -4,8 +4,12 @@ import { Route, Switch } from 'react-router-dom'
 import { PrivateRoute } from './components'
 
 // import views
-import {} from './views'
+import { Home } from './views'
 
 export default function AppRoutes() {
-    return <Switch></Switch>
+    return (
+        <Switch>
+            <Route exact path='/' component={Home} />
+        </Switch>
+    )
 }

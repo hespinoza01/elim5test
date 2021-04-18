@@ -1,0 +1,81 @@
+.Elim5Minion {
+    position: relative;
+    min-height: 300px;
+    min-width: 300px;
+    width: 50%;
+    height: 50%;
+
+    .Elim5Minion-button {
+        @include input-base;
+        @include flex-horizontal;
+        justify-content: center;
+        align-items: center;
+        background-color: $red;
+        border-radius: 100px;
+        box-shadow: 0 0 0 8px rgba($red, .4);
+        color: $white;
+        cursor: pointer;
+        padding: 4px;
+        position: absolute;
+        animation: pulse 2s infinite;
+        transform: scale(1);
+        transition: transform .25s;
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba($red, .7);
+            }
+
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba($red, 0);
+            }
+
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba($red, 0);
+            }
+        }
+    }
+
+    .Elim5Minion-button__icon {
+        height: 1rem;
+        width: 1rem;
+    }
+
+    .Elim5Minion-alert {
+        @include roboto($weight: 500);
+        display: inline-block;
+        background-color: $pink-secondary;
+        border-radius: 7px;
+        font-size: clamp(1rem, 2.5vw, 2rem);
+        padding: .75rem 2rem;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        transform: scale(1) translate(calc(-100% - 20px), calc(-50% + 7px));
+        animation: show-alert .25s;
+
+        @keyframes show-alert {
+            from {
+                transform: scale(0) translate(calc(-100% - 20px), calc(-50% + 7px));
+            }
+        }
+
+        &::first-letter {
+            text-transform: uppercase;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            background-color: inherit;
+            height: 1rem;
+            width: 1rem;
+            right: -8px;
+            top: calc(50% - 8px);
+            transform: rotate(45deg);
+        }
+    }
+}
