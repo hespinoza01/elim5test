@@ -1,0 +1,47 @@
+.TextField {
+    @include roboto;
+    @include flex-vertical;
+    color: rgba($black, .75);
+    width: 100%;
+
+    .TextField-label {
+        color: $purple;
+        font-size: 14px;
+        text-transform: uppercase;
+    }
+
+    .TextField-input {
+        @include input-base;
+        padding-right: 0;
+        padding-left: 0;
+        background-color: transparent;
+        border-bottom: 1px solid currentColor;
+        color: inherit;
+        font-family: inherit;
+        font-size: 16px;
+        line-height: 20px;
+        transition: color .25s;
+    }
+
+    .TextField-required {
+        @include roboto($weight: 500);
+        @include flex-horizontal;
+        justify-content: center;
+        align-items: center;
+        align-self: flex-end;
+        color: $purple;
+        font-size: 12px;
+        margin-top: 4px;
+        text-transform: uppercase;
+        width: fit-content;
+
+        span {
+            display: inline-block;
+            margin-left: 4px;
+        }
+    }
+
+    &:focus-within {
+        color: $purple;
+    }
+}

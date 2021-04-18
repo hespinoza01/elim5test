@@ -5,5 +5,15 @@ import Header from './header.component'
 import Navbar from './navbar.component'
 import Layout from './layout.component'
 import PrivateRoute from './private-route.component'
+import TextField from './text-field.component'
 
-export { Button, Elim5Minion, Footer, Header, Navbar, PrivateRoute, Layout }
+export {
+    Button,
+    Elim5Minion,
+    Footer,
+    Header,
+    Navbar,
+    PrivateRoute,
+    Layout,
+    TextField,
+}
