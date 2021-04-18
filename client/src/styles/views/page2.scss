@@ -1,0 +1,114 @@
+.Page2 {
+    @include roboto;
+    scroll-behavior: smooth;
+
+    .Page2-title {
+        @include flex-vertical;
+        justify-content: center;
+        align-items: center;
+        color: $pink;
+        text-transform: capitalize;
+        height: calc(100vh - 6rem + 5px);
+
+        .Button {
+            margin-top: 1rem;
+        }
+    }
+
+    .Minion {
+        width: 250px;
+        transform: rotateY(180deg);
+        margin-bottom: 2rem;
+    }
+
+    .Demo {
+        @include flex-vertical;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+
+        h2 {
+            font-size: 2rem;
+            text-transform: capitalize;
+        }
+    }
+
+    .space {
+        color: transparent;
+    }
+
+    .Demo1 {
+        background-color: $pink;
+
+        span {
+            display: inline-block;
+            animation: text-animation .7s infinite alternate;
+
+            $delay: 0.1;
+            @for $i from 1 through 18 {
+                &:nth-child(#{$i}) {
+                    animation-delay: #{$delay}s;
+                }
+
+                $delay: $delay + 0.1;
+            }
+        }
+
+        @keyframes text-animation {
+            from {
+                transform: translateY(-10px);
+            }
+            to {
+                transform: translateY(10px);
+            }
+        }
+    }
+
+    .Demo2 {
+        color: $white;
+        background-color: $purple;
+
+        h2 {
+            background: linear-gradient(90deg, $purple, $white, $purple);
+            background-repeat: no-repeat;
+            background-size: 80%;
+            animation: text-shadow 3s linear infinite;
+            background-clip: text;
+            overflow: hidden;
+            -webkit-text-fill-color: rgba(255, 255, 255, 0);
+
+            @keyframes text-shadow {
+                0% {
+                    background-position: -500%;
+                }
+                100% {
+                    background-position: 500%;
+                }
+            }
+        }
+    }
+
+    .Demo3 {
+        background-color: $red;
+        span {
+            display: inline-block;
+            animation: text-animation-scale .7s infinite alternate;
+
+            $delay: 0.1;
+            @for $i from 1 through 18 {
+                &:nth-child(#{$i}) {
+                    animation-delay: #{$delay}s;
+                    margin-right: 5px;
+                }
+
+                $delay: $delay + 0.1;
+            }
+        }
+
+        @keyframes text-animation-scale {
+            to {
+                transform: scale(1.3);
+            }
+        }
+    }
+}

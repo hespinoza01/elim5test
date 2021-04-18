@@ -1,3 +1,4 @@
 import Home from './home.view'
+import Page2 from './page2.view'
 
-export { Home }
+export { Home, Page2 }
