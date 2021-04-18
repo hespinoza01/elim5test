@@ -1,9 +1,9 @@
 .Elim5Minion {
+    @include flex-vertical;
+    justify-content: center;
     position: relative;
     min-height: 300px;
     min-width: 300px;
-    width: 50%;
-    height: 50%;
 
     .Elim5Minion-button {
         @include input-base;

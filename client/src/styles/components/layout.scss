@@ -1,0 +1,16 @@
+.Layout {
+    @include flex-vertical;
+    justify-content: space-between;
+    flex-shrink: 1;
+    height: 100vh;
+    max-width: 100%;
+    overflow-x: hidden;
+
+    .Header {
+        padding: 1rem 3rem;
+    }
+
+    @media (max-width: 380px) {
+        overflow-x: initial;
+    }
+}

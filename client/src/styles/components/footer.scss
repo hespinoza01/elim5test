@@ -2,5 +2,9 @@
     @include roboto($weight: 500);
     background-color: $pink-secondary;
     line-height: 22px;
-    padding: 1rem 0;
+
+    p {
+        padding: 1rem 3rem;
+        text-align: justify;
+    }
 }

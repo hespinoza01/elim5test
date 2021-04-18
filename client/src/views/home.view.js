@@ -1,15 +1,13 @@
 import { useState } from 'react'
 
 // import components
-import { Button, Elim5Minion, Footer, Header, Navbar } from '../components'
+import { Button, Elim5Minion, Layout, Navbar } from '../components'
 
 export default function Home() {
     const [showNavbar, setShowNavbar] = useState(false)
 
     return (
-        <main className='Home'>
-            <Header />
-
+        <Layout className='Home'>
             <section className='Home-content'>
                 <div className='Home-content__information'>
                     <h2 className='Home-content__information-title'>
@@ -18,8 +16,7 @@ export default function Home() {
 
                     <p className='Home-content__information-description'>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Placeat, nisi molestiae amet tempora soluta
-                        exercitationem, magnam nobis saepe doloremque
+                        Placeat, nisi molestiae amet tempora soluta.
                     </p>
 
                     <p className='Home-content__information-footer'>
@@ -38,9 +35,7 @@ export default function Home() {
                 start demo
             </Button>
 
-            <Footer />
-
             {showNavbar && <Navbar onClose={() => setShowNavbar(false)} />}
-        </main>
+        </Layout>
     )
 }
