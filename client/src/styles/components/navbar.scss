@@ -1,0 +1,51 @@
+.Navbar {
+    @include flex-vertical;
+    @include full-screen;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: rgba($white, .85);
+    padding: 0 4rem;
+    animation: show-navbar .5s;
+
+    @keyframes show-navbar {
+        from {
+            transform: translateX(100%)
+        }
+    }
+
+    .Navbar-content {
+        @include flex-vertical;
+        width: 175px;
+    }
+
+    .btn-close {
+        @include input-base;
+        background-color: transparent;
+        font-size: 2.5rem;
+        align-self: flex-end;
+        margin-right: -4rem;
+    }
+
+    .Button {
+        text-transform: capitalize;
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        opacity: 0;
+        transform: translateX(100%);
+
+        @for $i from 1 through 4 {
+            &:nth-child(#{$i}) {
+                $delay: $i * 0.1;
+                $duration: $i * 0.25;
+                animation: show-nav-option #{$duration}s #{$delay}s forwards;
+            }
+        }
+
+        @keyframes show-nav-option {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    }
+}

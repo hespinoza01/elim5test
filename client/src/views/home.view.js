@@ -1,7 +1,11 @@
+import { useState } from 'react'
+
 // import components
-import { Button, Elim5Minion, Footer, Header } from '../components'
+import { Button, Elim5Minion, Footer, Header, Navbar } from '../components'
 
 export default function Home() {
+    const [showNavbar, setShowNavbar] = useState(false)
+
     return (
         <main className='Home'>
             <Header />
@@ -26,11 +30,17 @@ export default function Home() {
                 <Elim5Minion />
             </section>
 
-            <Button className='btn-start-demo' primary>
+            <Button
+                onClick={() => setShowNavbar(true)}
+                className='btn-start-demo'
+                primary
+            >
                 start demo
             </Button>
 
             <Footer />
+
+            {showNavbar && <Navbar onClose={() => setShowNavbar(false)} />}
         </main>
     )
 }
