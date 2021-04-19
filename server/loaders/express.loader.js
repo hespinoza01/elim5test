@@ -3,6 +3,7 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import morgan from 'morgan'
 import helmet from 'helmet'
+import path from 'path'
 
 /**
  * Configure a express instance
@@ -25,14 +26,23 @@ export default async function ExpressLoader(app, api) {
     app.use(morgan('dev'))
     app.use(bodyParser.json())
     app.use(express.urlencoded({ extended: false }))
-    app.use(express.static('./public'))
+    app.use(express.static(path.resolve(__dirname + '/../public')))
+    app.disable('etag')
 
     // config routes
-    app.get('/', (_, res) => res.send('running'))
-
     if (api) {
         app.use('/api', api)
     }
+
+    app.get('*', (_, res) => {
+        res.header('Access-Control-Allow-Origin', '*')
+        res.header('Content-Security-Policy', 'script-src blob:')
+        res.header('Content-Security-Policy', 'worker-src blob:')
+        res.set(
+            'Content-Security-Policy',
+            `default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'`
+        ).sendFile('index.html')
+    })
 
     return app
 }
