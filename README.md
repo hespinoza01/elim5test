@@ -6,6 +6,6 @@ The application consists of two parts, a client and a server. For the constructi
 
 For the server, it was built with **Express** and **Sequelize** for the management of the models and communication with the DB.
 
-For the configuration of the environment variables, there is the **.env.local** file which shows the required configurations.
+For the configuration of the environment variables, there is the **.env.example** file which shows the required configurations.
 
 Finally, Heroku was used for the production deployment of the application. Which is available at the following link [elim5test.herokuapp.com](https://elim5test.herokuapp.com/)
