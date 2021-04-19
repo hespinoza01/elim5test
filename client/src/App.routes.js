@@ -9,8 +9,8 @@ import { Home, Page2, Access } from './views'
 export default function AppRoutes() {
     return (
         <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path='/page2' component={Page2} />
+            <PrivateRoute exact path='/' component={Home} />
+            <PrivateRoute path='/page2' component={Page2} />
             <Route path='/access' component={Access} />
         </Switch>
     )

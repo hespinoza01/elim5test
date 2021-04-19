@@ -10,6 +10,9 @@ export default function Reducer(state, action) {
 
     // Verify action reducer type
     switch (type) {
+        case actions.setToken:
+            return { ...state, token: payload }
+
         default:
             return state
     }

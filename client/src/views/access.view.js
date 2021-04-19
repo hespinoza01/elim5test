@@ -2,8 +2,11 @@ import { FiAlertTriangle as AlertIcon } from 'react-icons/fi'
 
 // import components
 import { Button, TextField } from '../components'
+import { useAccess } from '../hooks'
 
 export default function Access() {
+    const { name, email, onSubmit } = useAccess()
+
     return (
         <main className='Access'>
             <div className='Access-alert'>
@@ -15,10 +18,16 @@ export default function Access() {
                 </p>
             </div>
 
-            <form className='Access-form' action='#'>
-                <TextField label='Name' placeholder='Juan Pérez' required />
+            <form className='Access-form' action='#' onSubmit={onSubmit}>
+                <TextField
+                    {...name}
+                    label='Name'
+                    placeholder='Juan Pérez'
+                    required
+                />
 
                 <TextField
+                    {...email}
                     label='Email'
                     placeholder='example@email.com'
                     required

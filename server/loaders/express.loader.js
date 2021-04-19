@@ -31,7 +31,7 @@ export default async function ExpressLoader(app, api) {
     app.get('/', (_, res) => res.send('running'))
 
     if (api) {
-        app.use(api)
+        app.use('/api', api)
     }
 
     return app
