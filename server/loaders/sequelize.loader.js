@@ -1,5 +1,5 @@
 // import models for sync
-import {} from '../models'
+import { UserModel, TokenModel, SessionModel } from '../models'
 
 /**
  * sync sequelize models with database
@@ -11,6 +11,11 @@ export default async function SequelizeLoader(sequelizeInstance) {
     }
 
     // Configuring model relationships
+    TokenModel.belongsTo(UserModel, { foreignKey: 'userId' })
+    SessionModel.belongsTo(UserModel, { foreignKey: 'userId' })
+
+    UserModel.hasOne(UserModel, { foreignKey: 'userId' })
+    UserModel.hasOne(UserModel, { foreignKey: 'userId' })
 
     // models sync
     await sequelizeInstance.sync({ alter: false })

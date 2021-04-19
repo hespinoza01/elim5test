@@ -22,6 +22,9 @@ const db = new Sequelize(dbConfig.NAME, dbConfig.USERNAME, dbConfig.PASSWORD, {
         acquire: 30000,
         idle: 10000,
     },
+    define: {
+        freezeTableName: true,
+    },
 })
 
 export default db
