@@ -22,9 +22,7 @@ export default function Navbar({ onClose = () => {} }) {
                 </Link>
 
                 <Link
-                    to={`'page2?option=Demo_2&token=${Queryparams.get(
-                        'token'
-                    )}`}
+                    to={`page2?option=Demo_2&token=${Queryparams.get('token')}`}
                 >
                     <Button>demo 2</Button>
                 </Link>

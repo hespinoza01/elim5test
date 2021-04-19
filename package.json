@@ -8,7 +8,7 @@
         "start:client": "PORT=3000 node scripts/start.js",
         "start:server": "NODE_ENV=development nodemon ./server/app.js --exec babel-node -e js",
         "start:dev": "npm-run-all --parallel start:client start:server",
-        "start": "npm run clean && npm run build:server && npm run build:client && node ./build/app.js",
+        "start": "npm run build && node ./build/app.js",
         "build:client": "BUILD_PATH='build/public' node scripts/build.js",
         "build:server": "babel -d ./build ./server -s",
         "build": "npm run clean && npm run build:server && npm run build:client",
