@@ -75,7 +75,7 @@ TokenService.create = function (userId) {
                 })
             }
 
-            resolve(token)
+            resolve(token.get({ plain: true }))
         } catch (error) {
             reject(error)
         }

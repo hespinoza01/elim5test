@@ -21,16 +21,16 @@ SessionService.register = function (userId) {
                 const visitsCounter = prevSession.get('visits')
 
                 session = await prevSession.update({
-                    visists: visitsCounter + 1,
+                    visits: visitsCounter + 1,
                 })
             } else {
                 session = await SessionModel.create({
                     userId,
-                    visists: 1,
+                    visits: 1,
                 })
             }
 
-            resolve(session)
+            resolve(session.get({ plain: true }))
         } catch (error) {
             reject(error)
         }

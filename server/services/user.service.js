@@ -10,10 +10,22 @@ const UserService = {}
 UserService.create = function (name, email) {
     return new Promise(async (resolve, reject) => {
         try {
-            const user = await UserModel.create({
-                name,
-                email,
-            })
+            let user = null
+
+            // check if user exist
+            const prevUser = await UserService.get(email, false)
+
+            if (prevUser) {
+                user = await prevUser.update({
+                    email,
+                    name,
+                })
+            } else {
+                user = await UserModel.create({
+                    name,
+                    email,
+                })
+            }
 
             resolve(user.get({ plain: true }))
         } catch (error) {

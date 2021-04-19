@@ -1,4 +1,4 @@
-import { DecodeToken } from '../utils'
+import { AccessToken } from '../utils'
 
 /**
  * Check user credentials before request
@@ -9,13 +9,13 @@ export default async function AuthMiddleware(req, res, next) {
         const token = req.header('Authorization') || null
 
         // assign user data to req
-        req.user = await DecodeToken(token)
+        req.user = await AccessToken.verify(token)
 
         next()
     } catch (error) {
         return res.status(401).json({
             error: true,
-            message: 'Tu sesión ha caducado',
+            message: 'Invalid access token',
         })
     }
 }
