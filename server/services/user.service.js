@@ -72,7 +72,7 @@ UserService.get = function (userKeyword, raw = true) {
 UserService.update = function (name, email) {
     return new Promise(async (resolve, reject) => {
         try {
-            const user = await UserService.get(email)
+            const user = await UserService.get(email, false)
 
             if (!user) {
                 throw String('user not exist')

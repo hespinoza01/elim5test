@@ -61,7 +61,7 @@ TokenService.create = function (userId) {
             let token = null
 
             // check if exist a current token
-            const prevToken = await TokenService.getByUserId(userId)
+            const prevToken = await TokenService.getByUserId(userId, false)
 
             // if exist a prev token, update token hash
             if (prevToken) {
